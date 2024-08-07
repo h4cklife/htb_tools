@@ -10,4 +10,6 @@ This tool is useful for HTB Sherlock Cloud challenges.
 
 ### Example Commands
 
-./cloudtrail.py --ctdump --dir ~/htb/sherlocks/heartbreakdenouement/HeartBreakerDenouement/AWS/ | grep accountId | tr -d " \t\r" | sort | uniq
+./cloudtrail.py --successful_api --dir ~/htb/sherlocks/heartbreakdenouement/HeartBreakerDenouement/AWS/ > logs/challenge_cloudtrail_successful_api.json
+
+./cloudtrail.py --file logs/challenge_cloudtrail_successful_api.json --userAgent python | grep dBSnapshotIdentifier | sort | uniq | tr -d " \t'r"
