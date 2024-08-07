@@ -29,10 +29,10 @@ def cloudtrail_compile_logs(ct_log_dir=None, successful_api=None):
                                 for rec in data['Records']:
                                     if successful_api:
                                         if "errorCode" not in rec and rec['eventType'] == 'AwsApiCall':
-                                            rec['sourceCloudTailFile'] = cf
+                                            rec['sourceCloudTrailFile'] = cf
                                             filtered_json['Records'].append(rec)
                                     else: 
-                                        rec['sourceCloudTailFile'] = cf
+                                        rec['sourceCloudTrailFile'] = cf
                                         filtered_json['Records'].append(rec)
     except Exception as error:
         print(f"An error has occurred : {error}", file=sys.stdout)
